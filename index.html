@@ -505,9 +505,7 @@
     <div class="content">
         <h2 style="text-align:center;">Overview</h2>
         <img class="summary-img" src="./asserts/images/model.jpg" style="width:60%;">
-        <p> The architecture of the LanDiff model. Given text inputs, we extract text embedding and use an LLM to
-            generate semantic tokens in the first stage. Then we use a diffusion model to generate the final video which
-            use semantic tokens as conditions.</p>
+        <p>The architecture of LanDiff. Given text inputs, we first extract text embeddings and employ an LLM to generate semantic tokens in the first stage. Subsequently, we utilize a diffusion model to synthesize perceptual features conditioned on these semantic tokens, followed by a VAE decoder that transforms these features into the final video frames.</p>
     </div>
 
     <div class="content">
