@@ -5,6 +5,18 @@
     <title>LanDiff</title>
     <link href="./asserts/style.css" rel="stylesheet">
 
+    <!-- 添加 MathJax 支持 -->
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -503,7 +515,9 @@
         <img class="summary-img" src="./asserts/images/radar_chart.svg" style="width:80%;">
         <p><strong>Radar chart visualization of performance comparison across different dimensions on VBench.</strong>
             The plot compares LanDiff against five competitive baselines: Sora, Hailuo, HunyuanVideo, Kling, and
-            CogVideoX-5B.</p>
+            CogVideoX-5B. For better readability, the values in the radar chart have been normalized to a scale ranging
+            from 0.3 to 0.8. The normalization was performed using the min-max scaling formula: $normalized = 0.3 + 0.5
+            \times \frac{value - min\_value}{max\_value - min\_value}$</p>
     </div>
 
     <section id="video" class="demos">
