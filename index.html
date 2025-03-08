@@ -6,15 +6,29 @@
     <link href="./asserts/style.css" rel="stylesheet">
 
     <!-- 添加 MathJax 支持 -->
-    <script type="text/javascript" id="MathJax-script" async
+    <script type="text/javascript" id="MathJax-script" defer
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
         </script>
-    <script>
+    <script type="text/javascript">
         window.MathJax = {
             tex: {
                 inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            startup: {
+                pageReady: function () {
+                    return MathJax.startup.defaultPageReady().then(function () {
+                        console.log('MathJax 初始化完成');
+                    });
+                }
             }
         };
+
+        // 确保在DOM完全加载后重新渲染数学公式
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.typeset();
+            }
+        });
     </script>
 
     <meta charset="UTF-8">
@@ -138,7 +152,7 @@
             font-stretch: 100%;
             font-display: block;
             font-weight: 300 700;
-            src: url('./assets/roboto.woff2') format('woff2');
+            src: url('./asserts/roboto.woff2') format('woff2');
             unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
         }
 
@@ -488,19 +502,7 @@
     </div>
     <div class="content">
         <h2 style="text-align:center;">Abstract</h2>
-        <p>Recent advancements in text-to-video (T2V) generation have been driven by two competing paradigms:
-            autoregressive language models and diffusion models. However, each paradigm has intrinsic limitations -
-            language models struggle with visual quality and error accumulation, while diffusion models lack semantic
-            understanding and causal modeling. In this work, we propose LanDiff, a hybrid framework that synergizes the
-            strengths of both paradigms through coarse-to-fine generation. Our architecture introduces three key
-            innovations: (1) a semantic tokenizer that compresses 3D visual features into compact 1D discrete
-            representations through efficient semantic compression, achieving a $\sim$14,000× compression ratio; (2) a
-            language model that generates semantic tokens with high-level semantic relationships; (3) a streaming
-            diffusion model that refines coarse semantics into high-fidelity videos. Experiments show that LanDiff, a 5B
-            model, achieves a score of 85.43 on the VBench T2V benchmark, surpassing the state-of-the-art open-source
-            models Hunyuan Video (13B) and other commercial models such as Sora, Keling, and Hailuo. In addition, our
-            model also achieves state-of-the-art performance in long video generation, surpassing other open-source
-            models in this field.</p>
+        <p>Recent advancements in text-to-video (T2V) generation have been driven by two competing paradigms: autoregressive language models and diffusion models. However, each paradigm has intrinsic limitations: language models struggle with visual quality and error accumulation, while diffusion models lack semantic understanding and causal modeling. In this work, we propose LanDiff, a hybrid framework that synergizes the strengths of both paradigms through coarse-to-fine generation. Our architecture introduces three key innovations: (1) a semantic tokenizer that compresses 3D visual features into compact 1D discrete representations through efficient semantic compression, achieving a $\sim$14,000$\times$ compression ratio; (2) a language model that generates semantic tokens with high-level semantic relationships; (3) a streaming diffusion model that refines coarse semantics into high-fidelity videos. Experiments show that LanDiff, a 5B model, achieves a score of 85.43 on the VBench T2V benchmark, surpassing the state-of-the-art open-source models Hunyuan Video (13B) and other commercial models such as Sora, Kling, and Hailuo. Furthermore, our model also achieves state-of-the-art performance in long video generation, surpassing other open-source models in this field.</p>
     </div>
     <div class="content">
         <h2 style="text-align:center;">Overview</h2>
