@@ -1,0 +1,6 @@
+@article{yin2025best,
+  title={The Best of Both Worlds: Integrating Language Models and Diffusion Models for Video Generation},
+  author={Yin, Aoxiong and Shen, Kai and Leng, Yichong and Tan, Xu and Zhou, Xinyu and Li, Juncheng and Tang, Siliang},
+  journal={arXiv preprint arXiv:2503.04606},
+  year={2025}
+}
